@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역변수 전역변수</title>
+    <script>
+        // 전역 변수 : 프로그램 전체에서 다 함께 사용할 수 있는 변수. 현재 열려있는 페이지 어디에서든 접근할 수 있는 변수를 전역 변수라고 함
+        // 지역 변수 : 특정 영역 내에서만 선언되어 사용되고 삭제되는 변수를 지역 변수라고 함. 자바스크립트에서는 함수를 기준으로 함(ES6의 let을 사용하여 선언하였을 경우 코드 블럭{ } 을 기준으로 함)
+
+        //-----예제 9-9
+        function getGrade() { //함수 정의. 함수 : 특정 목적을 가지고, 결과를 출력하기 위해 존재하는 코드묶음
+            var kor = 95; // 지역 변수 선언, getGrade 함수 내에서만 사용되다가 삭제됨
+        }
+        // getGrade함수를 나왔으므로 var kor = 95; 는 메모리에서 삭제됨
+
+    
+        var kor = 100; // 전역 변수 선언
+        getGrade(); // 함수 호출 but var kor = 95; 가 삭제되었음
+        console.log("국어 점수 : " + kor); // 국어 점수 : 100 이 출력됨
+
+        console.log("/n/n ------------ /n/n");
+
+
+
+        //-----예제 9-10
+        function getGrade2() {
+            kor2 = 95; // 함수 내부에서 var 생략 시 자동 전역 변수로 선언됨. 지역변수가 아닌 전역변수인 kor2에 데이터 95를 저장함
+        }
+        var kor2 = 100; // 전역 변수 선언 및 데이터 저장
+        getGrade2();
+        console.log("국어 점수 : " + kor2); // 국어 점수 : 95 가 출력됨
+
+
+        console.log("/n/n ------------ /n/n");
+
+
+
+        //----- 예제 9-11
+        function getGrade3() {
+            var kor3 = 95; // 지역 변수 선언 및 데이터 저장
+        }
+        // 밖에 전역변수가 없다
+        getGrade3();
+        console.log("지역 변수 값은 함수 외부에서 사용할 수 없습니다");
+        // console.log("국어 점수 : " + kor3); //kor3은 바깥에서 참조할 수 없어서 오류가 된다.
+
+
+
+        //-----예제 9-12
+        function getGrade4() {
+            var kor4 = 95; // 지역 변수 선언 및 데이터 저장
+            return kor4; // return 키워드 뒤에 데이터를 입력하면 입력된 데이터를 외부로 되돌려 줌
+        }
+
+       var getKor = getGrade4();  // 함수 getGrade4() 에 kor4의 값(95)이 들어옴. 그걸 getKor에 대입. 즉, 함수 getGrade4() 를 실행하고 되돌려 받은 데이터를 전역변수 getKor에 저장함
+        console.log("국어 점수 : " + getKor);
+
+
+
+
+        console.log("/n/n ------------ /n/n");
+
+
+        function getGrade5() {
+            var kor5 = 80; // 지역 변수 선언 및 데이터 저장
+            // 지역 변수와 전역 변수의 이름이 동일할 경우, 지역 변수가 우선권을 가지고 있음
+            console.log("지역 변수 국어 점수 : " + kor5);
+        }
+
+        var kor5 = 100; // 전역 변수 선언 및 데이터 저장
+        getGrade5();
+        console.log("전역 변수 국어 점수 : " + kor5);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

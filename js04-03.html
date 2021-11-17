@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 4일차 3번</title>
+    <script>
+        // 다차원 배열
+        // 2차원 배열 : 배열의 요소로 1차원 배열을 사용하는 배열
+        // 3차원 배열 : 배열의 요소로 2차원 배열을 사용하는 배열
+        // 배열만 가지고 다차원으로 사용하는 부분은 드물고, 배열과 object형을 혼합해서 사용하는 방식을 주로 사용
+        // 사용법
+        // var 배열명 = [][]; // 빈 2차원 배열 선언
+        // 2차원 배열 선언과 동시에 데이터 저장하기
+        // var 배열명 = [ 
+        //     [1, 2, 3],
+        //     [5, 6, 7]
+        // ]
+        // 배열명[indexA][indexB]; // 데이터 출력, indexA는 밖의 배열의 요소 위치, indexB 안의 배열의 요소 위치
+        // 배열명[indexA][indexB] = 데이터; // 데이터 입력, indexA는 밖의 배열의 요소 위치, indexB 안의 배열의 요소 위치
+
+        var lv2_arr = [ // 2차원배열
+            [1, 2, 3, 4, 5],
+            [6, 7, 8, 9, 10],
+            [11, 12, 13, 14, 15],
+            [16, 17, 18, 19, 20],
+            [21, 22, 23, 24, 25]
+        ]
+
+        var lv3_arr = [ // 3차원배열
+            [[1,2,3],[4,5,6],[7,8,9]],
+            [[10,11,12],[13,14,15],[16,17,18]],
+            [[19,20,21],[22,23,24],[25,26,27]],
+        ]
+
+
+
+
+
+        // 문제 1) 위의 2차원 배열에서 24를출력하기 위한 alert명령을 입력하세요
+        // alert(lv2_arr[4][3]);
+
+
+        // 배열의 요소로 object 타입을 사용하는 것 중 가장 많이 사용되는 방식은 게시판의 게시물 목록 가져오기
+
+        var arrbbs = [
+            [387672,	"다이소 초미니 화분 추천",	"스툴티갤로그로 이동합니다.",	"14:31",	7,	0],
+            [387671,	"어제밤에 식갤러들 전부 연락돌리고 싶더라",	"ㅇㅇ",	"14:28",	35,	1],
+            [387670,	"이 허브 이름 알려주실분 계시나요",	"ㅇㅅㅇㅅ",	"14:22",	22,	0],
+            [387669,	"박스 옆구리",	"톡희티콘",	"14:18",	21,	0],
+            [387668,	"벚나무 분재를 집에서 키울 수 있나요?",	"12갤로그로 이동합니다.",	"14:15",	21,	0]
+        ]
+        // 처음보는 사람들은 저숫자가 뭘 의미하는 건지 모를거임
+        
+        
+        
+        // 밑에처럼 objcet 타입으로 쓰면 알기 쉽다.
+
+        var obj = {num : 387672, title: "다이소 초미니 화분 추천", id:"스툴티갤로그로 이동합니다.", createDate: "14:31", view : 7, like : 0}
+        
+
+
+        // 배열과 object 형을 이중으로 쓰면 게시물 목록 불러왔을때 확인하기 알기 편하다 .
+        // 배열안에 ojbect형 사용
+        var arrbbs2 = [
+        {num : 387672, title: "다이소 초미니 화분 추천", id:"스툴티갤로그로 이동합니다.", createDate: "14:31", view: 7, like: 0},
+        {num : 387672, title: "다이소 초미니 화분 추천", id:"스툴티갤로그로 이동합니다.", createDate: "14:31", view: 7, like: 0},
+        {num : 387672, title: "다이소 초미니 화분 추천", id:"스툴티갤로그로 이동합니다.", createDate: "14:31", view: 7, like: 0},
+        {num : 387672, title: "다이소 초미니 화분 추천", id:"스툴티갤로그로 이동합니다.", createDate: "14:31", view: 7, like: 0},
+        {num : 387672, title: "다이소 초미니 화분 추천", id:"스툴티갤로그로 이동합니다.", createDate: "14:31", view: 7, like: 0}
+        ]
+
+
+        // 다중 반복문 사용하기
+        var lv2_arr = [
+            [1, 2, 3, 4, 5],
+            [6, 7, 8, 9, 10],
+            [11, 12, 13, 14, 15],
+            [16, 17, 18, 19, 20],
+            [21, 22, 23, 24, 25]
+        ]
+
+        for (var i = 0; i < lv2_arr.length; i++) {
+            console.log(lv2_arr[i]);
+        }
+
+        for (var i = 0; i < lv2_arr.length; i++) { // lv2_arr.length : lv2_arr의 밖의 배열 길이. 5.
+            for (var j = 0; j < lv2_arr[i].length; j++) { //lv2_arr[0].length : [1,2,3,4,5] 의 길이니까 5.
+                console.log(lv2_arr[i][j]);
+            }
+        }
+
+        
+        console.log("\n\n-------------------------------------\n\n");
+
+
+        var testArr = [
+            [1, 2, 3],
+            [5, 6, 7, 8, 9],
+            [10, 11],
+            [12, 13, 14, 15, 16, 17, 18, 19],
+            [20, 21, 22, 23, 24, 25]
+        ]
+
+
+        // 문제 2) 위의 배열에서 3, 3의 위치의 데이터를 출력하는 프로그램을 작성하세요
+        console.log("3, 3의 위치의 데이터 : " + testArr[3][3]);
+
+
+        // 문제 3) 위의 배열에서 4, 2의 위치에 데이터를 200으로 변경하고 해당 위치의 데이터를 출력하는 프로그램을 작성하세요
+        console.log("4, 2의 위치의 데이터 : " + testArr[4][2]);
+        testArr[4][2] = 200;
+        console.log("200으로 변경 후 4, 2의 위치의 데이터 : " + testArr[4][2]);
+
+
+
+        // 문제 4) testArr의 길이와 testArr의 index 3요소의 길이를 출력하는 프로그램을 작성하세요
+        var test_length = testArr.length;
+
+        var size = testArr[3].length;
+        console.log("testArr의 길이 : " + test_length + "\ntestArr의 index 3요소의 길이 : " + size);
+
+
+
+        // 문제 5) testArr의 index 2의 요소에 {num: 1000, title: "제목을 입력하세요", id: "tester", view: 10} 을 입력하는 프로그램을 작성하세요
+        console.log("----index 2 입력 전 -----")
+        for (var i = 0; i < testArr.length; i++) {
+            console.log(testArr[i]);
+        }
+
+        console.log("----index 2 입력 후 -----")
+
+        testArr[2] = {num: 1000, title: "제목을 입력하세요", id: "tester", view: 10}; 
+
+        for (var i = 0; i < testArr.length; i++) {
+            console.log(testArr[i]);
+        }
+        
+        // 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

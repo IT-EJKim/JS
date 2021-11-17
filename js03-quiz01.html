@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈</title>
+    <script>
+        // 문제 1) 사용자 입력으로 숫자를 하나 입력받고 입력 받은 숫자가 2의 배수인지 아닌지를 출력하는 프로그램을 작성하세요
+        // 힌트 : prompt() 사용, 입력받은 데이터를 숫자형 데이터 타입으로 변환하는 작업, if ~ else 문 사용
+        // 결과 출력 : alert() or console.log() 둘 중 하나로 출력
+
+        // -----------강사님 답--------------
+        // var num1 = prompt("숫자 입력");
+        // isNaN() : 매개변수가 숫자인지 검사하는 함수. NaN은 Not a Number라는 뜻
+        // false 면 숫자라는 의미이고 true 면 숫자 아니라는 거.
+        // Number() 는 문자열을 숫자로 바꿔주는 함수
+        // if (isNaN(num1) == false){
+        //     num1 = Number(num1);
+        //     if (num1 % 2 == 0) {
+        //         alert("짝수");
+        //     }
+        //     else {
+        //         alert("홀수");
+        //     }
+        // }
+        // else {
+        //     alert("입력된 데이터 숫자 아님");
+        // }
+        // -----------------------------------
+
+
+
+        
+
+
+        // 문제 2) 사용자 입력으로 숫자를 하나 입력받고 
+        // 입력받은 숫자가 2의 배수이면 '2의 배수인 숫자 xxx' 를 출력하고, 
+        // 3의 배수이면 '3의 배수인 숫자 xxx',
+        // 2의 배수이면서 3의 배수일 경우 '2와 3의 배수인 숫자 xxx' 를
+        // 출력하는 프로그램을 작성하세요
+        // 힌트 : 중복 if ~ else문 사용, 다중 if ~ else문 사용
+
+
+
+
+    
+
+
+
+
+
+
+    //-------------이런식으로 몇줄로 쓸 수도 있다-------------
+    //
+    // if ((num2 % 2 == 0) && (num2 % 3 == 0)) {
+    //     alert("2와 3의 배수인 숫자 " + num2);
+    // }
+    // else if (num2 % 2 == 0) {
+    //     alert("2의 배수인 숫자 " + num2);
+    // }
+    // else if (num2 % 3 == 0) {
+    //     alert("3의 배수인 숫자 " + num2);
+    // }
+    //-------------------------------------------------------
+
+
+    // 문제 3) for 문을 이용하여 1 ~ 100까지의 숫자를 출력하는 프로그램을 작성하세요.
+    
+    // for (var i = 1; i < 101; i++) {
+    //     console.log(i);
+    // }
+ 
+
+    // 문제 4) 1 ~ 10까지의 숫자를 모두 합하여 화면에 출력하는 프로그램을 작성하세요
+    // 힌트 : for 문 외부에 데이터를 저장하기 위한 변수가 필요함
+    // 1 + 2 + 3 .... + 10 = 55
+    
+
+
+
+
+    // var result = 0; // 계산 결과를 저장할 외부 저장소(변수)가 필요함, undefined 타입과 숫자 타입은 연산이 불가능하므로 처음에는 0을 넣어줘야한다.
+    // // 변수 result에 숫자 타입의 데이터를 저장하여 result의 데이터 타입을 숫자형 데이터 타입으로 변경
+    
+    // for (var i = 1; i < 11; i++) {
+
+    //     result = result + i
+    //     console.log(result);
+    // }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 문제 5) 사용자 입력과 for 문을 사용하여 지정한 단수의 구구단을 출력하는 프로그램을 작성하세요
+    // 출력 형태 : 5 * 1 = 5;
+
+    // var dan = prompt("몇단?", 5);
+
+    //     dan = Number(dan);
+
+    //     for (var i = 1; i <= 9; i++){
+    //         console.log(dan + " * " + i +  " = " + (dan * i));
+    //     }
+    
+
+
+
+
+        
+
+
+
+
+    // 문제 6) 1 ~ 10 까지의 숫자의 합을 출력하는 프로그램을 while문을 사용하여 작성하세요
+    
+    var sum6 = 0; // 1 ~ 10까지의 합을 저장할 변수
+
+    var count6 = 1; // while문의 초기화 변수
+    while (count6 <= 10) {
+        sum6 = sum6 + count6;
+        count6++;
+    }
+    console.log("1 ~ 10까지의 숫자의 합은 : " + sum6);
+
+
+
+
+
+    // 문제 7) 사용자 입력을 통하여 원하는 구구단의 단수를 입력받고 해당하는 구구단 단수를 출력하는 프로그램을 while문을 사용하여 작성하세요
+    
+
+
+    var dan7 = prompt("몇 단?",5);
+    
+    dan7 = Number(dan7);
+
+    var count7 = 1;
+    while (count7 <= 9) {
+        console.log("while 구구단 : " + dan7 + " * " + count7 + " = "  + (dan7 * count7));
+        count7++;
+    }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 7일차 1번</title>
+    <script src="./lib/jquery/jquery-3.6.0.js"></script>
+
+    <script>
+        //*사진찍은 그림 확인하기*
+        // width() : 지정한 태그의 너비를 설정하거나 가져옴
+            // $(선택자).width(); //정보 가져오기
+            // $(선택자).width(설정값); // 설정값 적용하기
+        // height() : 지정한 태그의 높이를 설정하거나 가져옴
+            // $(선택자).height(); //정보 가져오기
+            // $(선택자).height(설정값); //정보 가져오기
+
+        // innerWidth() : 지정한 태그의 padding을 포함한 너비를 가져옴
+        // innerHeigth() : 지정한 태그의 padding을 포함한 높이를 가져옴
+        // outerWidth() : 지정한 태그의 border를 포함한 너비를 가져옴
+        // outerHeigth() : 지정한 태그의 border를 포함한 높이를 가져옴
+        // outerWidth(true) : 지정한 태그의 margin을 포함한 너비를 가져옴
+        // outerHeight(true) : 지정한 태그의 border을 포함한 높이를 가져옴
+
+
+        $(document).ready(function() {
+            $("#btn-widthheight").on("click", function() {
+                var txt = ""; // 비어있는 문자열 변수 선언. "" 를 초기화한 이유는 뒤에 문자열을 더해서 붙여줄 수 있기 때문에. 초기화 안하면 undefined 라서 다른거 더하기로 붙여도 undefined + 문자열 이런식으로 되서 오류난다.
+                              // 자바스크립트의 변수는 초기값이 undefined이기 때문에 빈문자열을 사용하여 txt라는 변수의 데이터 타입을 문자열 타입으로 변경해줌
+                txt += "div의 너비는 : " + $("#div01").width() + "<br>"; // ""문자열에 뒤쪽의 문자열을 더해줘야 하는거라서 += 로! // width()를 이용하여 너비를 가져옴
+                txt += "div의 높이는 : " + $("#div01").height(); // height() 를 이용하여 높이를 가져옴
+                $("#div01").html(txt); // html() -> 선택한 요소의 내용을 가져오거나 바꾸는 메소드. // html()를 이용하여 #div01에 html 내용을 입력함
+            });
+
+
+
+            $("#btn-inner").on("click", function() {
+                var txt = "";
+                txt += "div의 너비는 : " + $("#div01").width() + "<br>"; // html 태그 쓸때도 "" 안에 넣어주기!
+                txt += "div의 높이는 : " + $("#div01").height() + "<br>"; 
+                txt += "div의 padding까지의 너비는 : " + $("#div01").innerWidth() + "<br>"; 
+                txt += "div의 padding까지의 높이는 : " + $("#div01").innerHeight();
+                $("#div01").html(txt);
+            });
+
+
+            $("#btn-outer").on("click", function() {
+                var txt = "";
+                txt += "div의 너비는 : " + $("#div01").width() + "<br>"; 
+                txt += "div의 높이는 : " + $("#div01").height() + "<br>"; 
+                txt += "div의 padding까지의 너비는 : " + $("#div01").innerWidth() + "<br>"; 
+                txt += "div의 padding까지의 높이는 : " + $("#div01").innerHeight() + "<br>"; 
+                txt += "div의 border까지의 너비는 : " + $("#div01").outerWidth() + "<br>";
+                txt += "div의 border까지의 높이는 : " + $("#div01").outerHeight();
+                $("#div01").html(txt);
+            });
+
+            $("#btn-outertrue").on("click", function() {
+                var txt = "";
+                txt += "div의 너비는 : " + $("#div01").width() + "<br>"; 
+                txt += "div의 높이는 : " + $("#div01").height() + "<br>"; 
+                txt += "div의 padding까지의 너비는 : " + $("#div01").innerWidth() + "<br>"; 
+                txt += "div의 padding까지의 높이는 : " + $("#div01").innerHeight() + "<br>"; 
+                txt += "div의 border까지의 너비는 : " + $("#div01").outerWidth() + "<br>";
+                txt += "div의 border까지의 높이는 : " + $("#div01").outerHeight() + "<br>";
+                txt += "div의 margin까지의 너비는 : " + $("#div01").outerWidth(true) + "<br>";
+                txt += "div의 margin까지의 높이는 : " + $("#div01").outerHeight(true);
+                $("#div01").html(txt);
+            });
+
+
+            // 늘 오타 확인하기, 자동완성 기능 쓰기.
+            $("#btn-addwidth").on("click", function() {
+                var width = $("#div01").width(); // 현재 div의 width값 가져오기
+                $("#div01").width(width + 10);   // 가져온 width에 10을 더해서 width를 설정함   
+                $("#btn-widthheight").trigger("click"); // 클릭 이벤트 강제 실행
+            });
+
+            $("#btn-addheight").on("click", function() {
+                var height = $("#div01").height();
+                $("#div01").height(height + 10);
+                $("#btn-widthheight").trigger("click");
+            });
+
+
+
+            $("#btn-off").on("click", function() {
+                $("#div01").html("");
+
+                var width = "400px";
+                $("#div01").width(width);
+
+                var height = "200px";
+                $("#div01").height(height);
+            });
+
+        });
+
+
+
+
+
+    </script>
+    <style>
+        #div01 {
+            width: 400px;
+            height: 200px;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid blue;
+            background-color: dodgerblue;         
+            color: wheat;
+        }
+
+        #btn-off {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div id="div01"></div>
+    <br><hr><br>
+    <button type="button" id="btn-widthheight">클릭 시 width, height 출력함</button>
+    <button type="button" id="btn-inner">클릭 시 innerWidth, innerHeigth를 출력함 </button>
+    <button type="button" id="btn-outer">클릭 시 outerWidth, outerHeigth를 출력함 </button>
+    <button type="button" id="btn-outertrue">클릭 시 outerWidth(true), outerHeigth(true)를 출력함 </button>
+
+    <button type="button" id="btn-addwidth">클릭 시 width 10 추가</button>
+    <button type="button" id="btn-addheight">클릭 시 height 10 추가</button>
+
+    <button type="button" id="btn-off">해제하기</button>
+
+</body>
+</html>
